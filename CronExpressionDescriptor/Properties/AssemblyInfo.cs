@@ -1,16 +1,15 @@
-﻿using System.Reflection;
-using System.Runtime.CompilerServices;
+using System.Reflection;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Cron Expression Descriptor")]
-[assembly: AssemblyDescription("A library that converts cron expressions into human readable strings.")]
+[assembly: AssemblyDescription("A library that converts cron expressions into human readable descriptions.  Supports 14 languages: English, Brazillian, Spanish, Norwgian, Turkish, Dutch, Chinese Simplified, Russian, French, German, Ukrainian, Polish, Romanian and Italian.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Brady Holt")]
 [assembly: AssemblyProduct("CronExpressionDescriptor")]
-[assembly: AssemblyCopyright("Copyright 2014")]
+[assembly: AssemblyCopyright("Copyright 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +31,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.9.1")]
-[assembly: AssemblyFileVersion("1.9.1")]
+[assembly: AssemblyVersion("1.19.0")]
+[assembly: AssemblyFileVersion("1.19.0")]

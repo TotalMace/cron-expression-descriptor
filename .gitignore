@@ -14,6 +14,13 @@ TestResults
 *.suo
 .DS_Store
 *.userprefs
-build/lib
+build/pack/lib
 build/*.nupkg
 /CronExpressionDescriptor.sln.DotSettings.user
+*.user
+packages
+testrunner
+TestResult.xml
+applicationhost.config
+CronExpressionDescriptor/Resources.ro.Designer.cs
+nuget.exe

@@ -1,9 +1,12 @@
 ﻿Cron Expression Descriptor
 ==========================
-A .NET library that converts cron expressions into human readable strings
+A .NET library that converts cron expressions into human readable descriptions.
+
+[![Build Status](https://img.shields.io/travis/bradyholt/cron-expression-descriptor.svg?branch=master)](https://travis-ci.org/bradyholt/cron-expression-descriptor)
+[![NuGet Version and Downloads count](https://buildstats.info/nuget/CronExpressionDescriptor)](https://www.nuget.org/packages/CronExpressionDescriptor/)
 
 **Author**: Brady Holt (http://www.geekytidbits.com)  
-**Contributors**: Renato Lima, Ivan Santos, Fabien Brooke, Siarhei Khalipski, Mustafa SADEDİL  
+**Contributors**: Renato Lima, Ivan Santos, Fabien Brooke, Siarhei Khalipski, Mustafa SADEDİL, TotalMace, Star Peng, LbISS, Arnaud TAMAILLON, Michael Schuler, Taras(tbudurovych)  
 **License**: [MIT](http://opensource.org/licenses/MIT)
 
 Features         
@@ -11,7 +14,7 @@ Features
  * Supports all cron expression special characters including * / , - ? L W, #
  * Supports 5, 6 (w/ seconds or year), or 7 (w/ seconds and year) part cron expressions
  * Provides casing options (Sentence, Title, Lower, etc.)
- * Localization with support for 5 languages
+ * Localization with support for 14 languages
  
 Languages Available
 --------
@@ -21,6 +24,20 @@ Languages Available
  * Spanish ([Ivan Santos](https://github.com/ivansg))
  * Norwegian ([Siarhei Khalipski](https://github.com/KhalipskiSiarhei))
  * Turkish ([Mustafa SADEDİL](https://github.com/sadedil))
+ * Dutch ([TotalMace](https://github.com/TotalMace))
+ * Chinese Simplified ([Star Peng](https://github.com/starpeng))
+ * Russian ([LbISS](https://github.com/LbISS))
+ * French ([Arnaud TAMAILLON](https://github.com/Greybird))
+ * German ([Michael Schuler](https://github.com/mschuler))
+ * Ukrainian ([Taras](https://github.com/tbudurovych))
+ * Italian ([rinaldihno](https://github.com/rinaldihno))
+ * Polish ([foka](https://github.com/foka))
+ * Romanian ([Illegitimis](https://github.com/illegitimis))
+
+Demo
+----------
+
+[http://cronexpressiondescriptor.azurewebsites.net](http://cronexpressiondescriptor.azurewebsites.net)
 
 Download
 ----------
@@ -28,6 +45,12 @@ Download
 Cron Expression Descriptor releases can be installed with **NuGet**.  [Visit the NuGet Package page](https://www.nuget.org/packages/CronExpressionDescriptor/) for more info.
 
 View [Releases](https://github.com/bradyholt/cron-expression-descriptor/releases) for release version history.
+
+Ports
+---------
+ - Java - [https://github.com/RedHogs/cron-parser](https://github.com/RedHogs/cron-parser)
+ - Ruby - [https://github.com/alpinweis/cronex](https://github.com/alpinweis/cronex)
+ - Python - [https://github.com/Salamek/cron-descriptor](https://github.com/Salamek/cron-descriptor)
 
 Usage Examples (as Unit Tests)
 --------
@@ -40,9 +63,9 @@ Usage Examples (as Unit Tests)
     Assert.AreEqual("At 11:00 PM, Monday through Friday", ExpressionDescriptor.GetDescription("0 23 ? * MON-FRI"));
     Assert.AreEqual("Every second", ExpressionDescriptor.GetDescription("* * * * * *"));
     Assert.AreEqual("Every 45 seconds", ExpressionDescriptor.GetDescription("*/45 * * * * *"));
-    Assert.AreEqual("Every 05 minutes", ExpressionDescriptor.GetDescription("*/5 * * * *"));
+    Assert.AreEqual("Every 5 minutes", ExpressionDescriptor.GetDescription("*/5 * * * *"));
     Assert.AreEqual("Every 10 minutes", ExpressionDescriptor.GetDescription("0 0/10 * * * ?"));
-    Assert.AreEqual("Every 05 minutes", ExpressionDescriptor.GetDescription("0 */5 * * * *"));
+    Assert.AreEqual("Every 5 minutes", ExpressionDescriptor.GetDescription("0 */5 * * * *"));
     Assert.AreEqual("At 11:30 AM, Monday through Friday", ExpressionDescriptor.GetDescription("30 11 * * 1-5"));
     Assert.AreEqual("At 11:30 AM", ExpressionDescriptor.GetDescription("30 11 * * *"));
     Assert.AreEqual("Every minute between 11:00 AM and 11:10 AM", ExpressionDescriptor.GetDescription("0-10 11 * * *"));
@@ -57,17 +80,17 @@ Usage Examples (as Unit Tests)
     Assert.AreEqual("At 12:23 PM, January through February", ExpressionDescriptor.GetDescription("23 12 * JAN-FEB *"));
     Assert.AreEqual("At 12:23 PM, January through March", ExpressionDescriptor.GetDescription("23 12 * JAN-MAR *"));
     Assert.AreEqual("At 12:23 PM, only on Sunday", ExpressionDescriptor.GetDescription("23 12 * * SUN"));
-    Assert.AreEqual("Every 05 minutes, at 03:00 PM, Monday through Friday", ExpressionDescriptor.GetDescription("*/5 15 * * MON-FRI"));
+    Assert.AreEqual("Every 5 minutes, at 03:00 PM, Monday through Friday", ExpressionDescriptor.GetDescription("*/5 15 * * MON-FRI"));
     Assert.AreEqual("Every minute, on the third Monday of the month", ExpressionDescriptor.GetDescription("* * * * MON#3"));
     Assert.AreEqual("Every minute, on the last Thursday of the month", ExpressionDescriptor.GetDescription("* * * * 4L"));
-    Assert.AreEqual("Every 05 minutes, on the last day of the month, only in January", ExpressionDescriptor.GetDescription("*/5 * L JAN *"));
+    Assert.AreEqual("Every 5 minutes, on the last day of the month, only in January", ExpressionDescriptor.GetDescription("*/5 * L JAN *"));
     Assert.AreEqual("At 02:02:30 PM", ExpressionDescriptor.GetDescription("30 02 14 * * *"));
-    Assert.AreEqual("Seconds 05 through 10 past the minute", ExpressionDescriptor.GetDescription("5-10 * * * * *"));
-    Assert.AreEqual("Seconds 05 through 10 past the minute, minutes 30 through 35 past the hour, between 10:00 AM and 12:00 PM", ExpressionDescriptor.GetDescription("5-10 30-35 10-12 * * *"));
+    Assert.AreEqual("Seconds 5 through 10 past the minute", ExpressionDescriptor.GetDescription("5-10 * * * * *"));
+    Assert.AreEqual("Seconds 5 through 10 past the minute, minutes 30 through 35 past the hour, between 10:00 AM and 12:00 PM", ExpressionDescriptor.GetDescription("5-10 30-35 10-12 * * *"));
     Assert.AreEqual("At 30 seconds past the minute, every 05 minutes", ExpressionDescriptor.GetDescription("30 */5 * * * *"));
     Assert.AreEqual("At 30 minutes past the hour, between 10:00 AM and 01:00 PM, only on Wednesday and Friday", ExpressionDescriptor.GetDescription("0 30 10-13 ? * WED,FRI"));
     Assert.AreEqual("At 10 seconds past the minute, every 05 minutes", ExpressionDescriptor.GetDescription("10 0/5 * * * ?"));
-    Assert.AreEqual("Every 03 minutes, minutes 02 through 59 past the hour, at 01:00 AM, 09:00 AM, and 10:00 PM, between day 11 and 26 of the month, January through June", ExpressionDescriptor.GetDescription("2-59/3 1,9,22 11-26 1-6 ?"));
+    Assert.AreEqual("Every 03 minutes, minutes 2 through 59 past the hour, at 01:00 AM, 09:00 AM, and 10:00 PM, between day 11 and 26 of the month, January through June", ExpressionDescriptor.GetDescription("2-59/3 1,9,22 11-26 1-6 ?"));
     Assert.AreEqual("At 06:00 AM", ExpressionDescriptor.GetDescription("0 0 6 1/1 * ?"));
     Assert.AreEqual("At 05 minutes past the hour", ExpressionDescriptor.GetDescription("0 5 0/1 * * ?"));
     Assert.AreEqual("Every second, only in 2013", ExpressionDescriptor.GetDescription("* * * * * * 2013"));

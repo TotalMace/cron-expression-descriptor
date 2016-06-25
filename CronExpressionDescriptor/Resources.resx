@@ -284,10 +284,6 @@
     <value>, every hour</value>
     <comment>ComaEveryHour description</comment>
   </data>
-  <data name="ComaEveryDay" xml:space="preserve">
-    <value>, every day</value>
-    <comment>ComaEveryDay description</comment>
-  </data>
   <data name="ComaEveryX0Years" xml:space="preserve">
     <value>, every {0} years</value>
     <comment>ComaEveryX0Years description</comment>
